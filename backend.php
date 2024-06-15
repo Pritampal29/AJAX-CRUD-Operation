@@ -15,12 +15,18 @@ function ShowData(){
 
     if($result > 0) {
         while($row = mysqli_fetch_assoc($q_fire)) {
+
             $output .= "<tr>
                             <td>".$row['id']."</td>
                             <td>".$row['name']."</td>
                             <td>".$row['email']."</td>
-                            <td><button id='delete-btn' data-id=".$row['id']." class='btn btn-danger px-3 py-0'>Delete</button></td>
+                            <td>
+                                <button type='button' id='view-btn' data-vid=".$row['id']." class='btn btn-warning px-3 py-0'>View</button>
+                                <button type='button' id='edit-btn' data-eid=".$row['id']." class='btn btn-success px-3 py-0'>Edit</button>
+                                <button type='button' id='delete-btn' data-did=".$row['id']." class='btn btn-danger px-3 py-0'>Delete</button>
+                            </td>
                         </tr>";
+                        
         }
     }else{
         $output .= "<tr><td>No Data Found</td></tr>";
